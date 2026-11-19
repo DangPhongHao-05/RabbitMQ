@@ -1,0 +1,33 @@
+<div class="stock-market-container">
+  <div class="market-header">
+    <div class="header-titles">
+      <h2>Thị trường Cổ phiếu</h2>
+      <span class="subtitle">Cập nhật dữ liệu thời gian thực</span>
+    </div>
+
+    <div class="market-actions">
+      <!-- <button class="action-btn primary" routerLink="/create-stock">
+        <span class="icon">+</span> Thêm Cổ Phiếu
+      </button> -->
+      <button class="action-btn secondary" (click)="openCreateStock()">
+        <span class="icon"></span> Thêm cổ phiếu
+      </button>
+    </div>
+  </div>
+
+  <ng-template #dialogTemplate>
+    <app-create-stock2></app-create-stock2>
+  </ng-template>
+
+  <div class="ticker-stream-list">
+    <app-stock-item
+      *ngFor="let item of stocks"
+      [stock]="item"
+      (delete)="deleteStock($event)"
+      (update)="updateStock($event)"
+      (detail)="viewStock($event)"
+      (favorite)="onToggleFavorite($event)"
+    >
+    </app-stock-item>
+  </div>
+</div>

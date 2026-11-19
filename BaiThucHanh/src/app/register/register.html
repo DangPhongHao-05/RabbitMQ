@@ -1,0 +1,136 @@
+<div class="register-page">
+  <div class="register-card">
+    <h1>Đăng ký</h1>
+    <p class="subtitle">Tạo tài khoản mới của bạn</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Tên đăng nhập</label>
+
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          placeholder="Nhập tên đăng nhập"
+        />
+
+        <small
+          class="error"
+          *ngIf="
+            registerForm.get('username')?.touched &&
+            registerForm.get('username')?.hasError('required')
+          "
+        >
+          Vui lòng nhập tên đăng nhập.
+        </small>
+
+        <small
+          class="error"
+          *ngIf="
+            registerForm.get('username')?.touched &&
+            registerForm.get('username')?.hasError('minlength')
+          "
+        >
+          Tên đăng nhập phải có ít nhất 3 ký tự.
+        </small>
+      </div>
+
+      <!-- Fullname -->
+      <div class="form-group">
+        <label for="fullname">Họ và tên</label>
+
+        <input id="fullname" type="text" formControlName="fullname" placeholder="Nhập họ và tên" />
+
+        <small
+          class="error"
+          *ngIf="
+            registerForm.get('fullname')?.touched &&
+            registerForm.get('fullname')?.hasError('required')
+          "
+        >
+          Vui lòng nhập họ và tên.
+        </small>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Mật khẩu</label>
+
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Nhập mật khẩu"
+        />
+
+        <small
+          class="error"
+          *ngIf="
+            registerForm.get('password')?.touched &&
+            registerForm.get('password')?.hasError('required')
+          "
+        >
+          Vui lòng nhập mật khẩu.
+        </small>
+
+        <small
+          class="error"
+          *ngIf="
+            registerForm.get('password')?.touched &&
+            registerForm.get('password')?.hasError('minlength')
+          "
+        >
+          Mật khẩu phải có ít nhất 6 ký tự.
+        </small>
+      </div>
+
+      <!-- Confirm password -->
+      <div class="form-group">
+        <label for="confirm">Xác nhận mật khẩu</label>
+
+        <input
+          id="confirm"
+          type="password"
+          formControlName="confirm"
+          placeholder="Nhập lại mật khẩu"
+        />
+
+        <small
+          class="error"
+          *ngIf="
+            registerForm.get('confirm')?.touched &&
+            registerForm.get('confirm')?.hasError('required')
+          "
+        >
+          Vui lòng xác nhận mật khẩu.
+        </small>
+
+        <small
+          class="error"
+          *ngIf="registerForm.get('confirm')?.touched && registerForm.hasError('passwordMismatch')"
+        >
+          Mật khẩu xác nhận không khớp.
+        </small>
+      </div>
+
+      <!-- Thông báo đăng ký -->
+      <p class="success" *ngIf="successMessage">
+        {{ successMessage }}
+      </p>
+
+      <p class="error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <button type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Đang đăng ký...' : 'Tạo tài khoản' }}
+      </button>
+
+      <p class="login-link">
+        Đã có tài khoản?
+        <a routerLink="/login">Đăng nhập</a>
+      </p>
+    </form>
+  </div>
+</div>

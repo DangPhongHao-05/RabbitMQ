@@ -1,0 +1,163 @@
+/* --- CONTAINER BỌC FORM --- */
+.form-group {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+/* --- TEXT HƯỚNG DẪN (Ghi chú trong form) --- */
+form > div:not([class]) {
+  font-size: 12.5px;
+  color: #6c757d;
+  font-style: italic;
+  margin-bottom: 6px;
+  padding-left: 2px;
+}
+
+/* --- KHOẢNG CÁCH GIỮA CÁC TRƯỜNG --- */
+.stock-name, 
+.stock-code, 
+.stock-price,
+.stock-exchange {
+  margin-bottom: 20px;
+}
+
+/* --- Ô NHẬP LIỆU & DROPDOWN --- */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  color: #333;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* --- XỬ LÝ MÀU VALIDATION THEO ĐÚNG YÊU CẦU HTML --- */
+/* Mặc định màu XANH khi dữ liệu hợp lệ (ng-valid) */
+input.ng-valid {
+  border-color: #28a745; 
+  background-color: #f8fff9;
+}
+
+/* 1. Đổi sang ĐỎ ngay khi không hợp lệ (Bất kể trạng thái) */
+.stock-name input.ng-invalid {
+  border-color: #dc3545;
+  background-color: #fff8f8;
+}
+
+/* 2. Đổi sang ĐỎ khi bị thay đổi (Modified - ng-dirty) */
+.stock-code input.ng-invalid.ng-dirty {
+  border-color: #dc3545;
+  background-color: #fff8f8;
+}
+
+/* 3. Đổi sang ĐỎ khi được focus rồi bỏ qua (Visited - ng-touched) */
+.stock-price input.ng-invalid.ng-touched {
+  border-color: #dc3545;
+  background-color: #fff8f8;
+}
+
+/* --- THÔNG BÁO LỖI CHỮ ĐỎ DƯỚI INPUT --- */
+.stock-name + div,
+.stock-code + div,
+.stock-price + div {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: -12px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  padding-left: 2px;
+}
+
+/* --- CHECKBOX XÁC NHẬN --- */
+.stock-confirm {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+}
+.stock-confirm input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* --- NÚT SUBMIT --- */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #0056b3;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Trạng thái disabled của nút Submit (khi chưa tick checkbox) */
+button[type="submit"]:disabled {
+  background-color: #a0c4eb;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* --- THÀNH PHẦN BÊN NGOÀI FORM (DEBUG & BACK BUTTON) --- */
+h4 {
+  max-width: 600px;
+  margin: 10px auto;
+  font-size: 14px;
+  color: #444;
+  background: #f1f3f5;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #17a2b8;
+  font-weight: normal;
+  font-family: monospace;
+}
+
+button[routerLink] {
+  display: block;
+  max-width: 100px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 10px 16px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+button[routerLink]:hover {
+  background-color: #5a6268;
+}

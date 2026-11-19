@@ -1,0 +1,166 @@
+/* --- Khung form tổng thể (Nhỏ gọn, phẳng) --- */
+.form-group {
+  max-width: 420px;
+  margin: 16px auto;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 2px; /* Góc bo siêu nhỏ, gần như vuông vức */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Ép form thành dạng lưới để chia Code và Price lên cùng 1 dòng */
+.form-group form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Các trường chiếm 100% chiều ngang */
+.stock-name, 
+.stock-exchange, 
+.stock-agree, 
+.form-actions {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* Ép Code và Price lên ngang nhau (mỗi cái 50% trừ đi khoảng hở nhỏ) */
+.stock-code, 
+.stock-price {
+  width: calc(50% - 6px);
+  margin-bottom: 12px;
+}
+
+/* --- Thiết kế Input / Select (Vuông vắn) --- */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  border: 1px solid #9ca3af;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #111827;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+/* --- Checkbox Đồng Ý --- */
+.stock-agree label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #374151;
+  cursor: pointer;
+}
+
+.stock-agree input[type="checkbox"] {
+  margin: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Cảnh báo lỗi (Chữ đỏ) --- */
+.error-text {
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+/* =========================================
+   XỬ LÝ CSS NÚT BẤM DỰA TRÊN CLASS CỦA BẠN 
+   ========================================= */
+
+/* 1. Nút Submit (Xanh, Chiếm 100%) */
+.btn-submit {
+  width: 100%;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btn-submit:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+.btn-submit:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+/* 2. Nhóm 3 Nút DEV (Nằm ngang hàng nhau) */
+.btn-group-secondary {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px; /* Cách nút Submit 1 chút */
+}
+.btn-group-secondary button {
+  flex: 1; /* Chia đều 3 phần */
+  padding: 6px;
+  font-size: 0.75rem;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btn-group-secondary button:hover {
+  background: #e5e7eb;
+}
+
+/* 3. Nút Cancel (Dưới cùng) */
+.back-button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #9ca3af;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.back-button:hover {
+  background: #f9fafb;
+}
+
+/* --- Bảng Debug --- */
+.debug-info {
+  max-width: 420px;
+  margin: 10px auto;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #6b7280;
+  text-align: center;
+}
+.debug-info .valid {
+  color: #10b981;
+  font-weight: bold;
+}
+/* --- Tiêu đề form --- */
+.form-title {
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  text-transform: uppercase; /* Viết hoa toàn bộ cho mạnh mẽ */
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e7eb; /* Đường gạch dưới mỏng */
+}

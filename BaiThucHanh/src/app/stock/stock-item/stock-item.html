@@ -1,0 +1,33 @@
+<div class="stock-ticker-row">
+  <div class="stock-identity">
+    <span class="ticker-symbol">
+      {{ stock.code }}
+    </span>
+
+    <div class="stock-titles">
+      <span class="name">
+        {{ stock.name }}
+      </span>
+
+      <span class="exchange-tag">
+        {{ stock.exchange || 'null' }}
+      </span>
+    </div>
+  </div>
+
+  <div class="stock-metrics">
+    <div class="price-display">
+      <span class="price" [ngStyle]="stock.styles"> ${{ stock.price }} </span>
+    </div>
+
+    <button (click)="onToggleFavorite()">
+      {{ stock.favorite ? 'Đang theo dõi' : '+ Theo dõi' }}
+    </button>
+
+    <button class="action-btn delete-btn" (click)="deleteStock()">Xóa</button>
+
+    <button class="action-btn update-btn" (click)="updateStock()">Update</button>
+
+    <button class="action-btn detail-btn" (click)="viewStock()">Chi tiết</button>
+  </div>
+</div>

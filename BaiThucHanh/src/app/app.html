@@ -1,0 +1,16 @@
+<header class="app-header" *ngIf="router.url === '/stock-list'">
+  <div class="brand">Stock App</div>
+
+  <div class="user-section">
+    <div class="user-info">
+      <span class="fullname">
+        {{ userService.getUser()?.fullname || 'Người dùng' }}
+      </span>
+
+      <span class="username"> @{{ userService.getUser()?.username || 'username' }} </span>
+    </div>
+
+    <button class="logout-btn" (click)="logout()">Đăng xuất</button>
+  </div>
+</header>
+<router-outlet></router-outlet>

@@ -1,0 +1,70 @@
+{
+  "stocks": [
+    {
+      "id": "1",
+      "name": "Apple Inc.",
+      "code": "AAPL",
+      "price": 245.5,
+      "previousPrice": 242.8,
+      "exchange": "NASDAQ",
+      "favorite": false
+    },
+    {
+      "id": "2",
+      "name": "Microsoft Corporation",
+      "code": "MSFT",
+      "price": 510.25,
+      "previousPrice": 515.6,
+      "exchange": "NASDAQ",
+      "favorite": true
+    },
+    {
+      "id": "3",
+      "name": "NVIDIA Corporation",
+      "code": "NVDA",
+      "price": 182.75,
+      "previousPrice": 178.4,
+      "exchange": "NASDAQ",
+      "favorite": true
+    },
+    {
+      "id": "4",
+      "name": "Amazon.com Inc.",
+      "code": "AMZN",
+      "price": 225.3,
+      "previousPrice": 228.1,
+      "exchange": "NASDAQ",
+      "favorite": false
+    },
+    {
+      "id": "5",
+      "name": "Alphabet Inc.",
+      "code": "GOOGL",
+      "price": 175.8,
+      "previousPrice": 172.5,
+      "exchange": "NASDAQ",
+      "favorite": false
+    },
+    {
+      "id": "6",
+      "name": "Tesla Inc.",
+      "code": "TSLA",
+      "price": 342.6,
+      "previousPrice": 350.2,
+      "exchange": "NASDAQ",
+      "favorite": false
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "username": "hao",
+      "password": "123456",
+      "fullname": "Hào",
+      "id": "le6dHtZKpYM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,81 @@
+/* Container bao bọc toàn bộ trang */
+.stock-market-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Header thị trường */
+.market-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.header-titles h2 {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.header-titles .subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.market-actions .action-btn {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.market-actions .action-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+/* ========================================================
+   KHỐI CHIA CỘT CHÍNH (3 CỘT -> 2 CỘT -> 1 CỘT)
+   ======================================================== */
+.ticker-stream-list {
+  display: grid;
+  width: 100%;
+  gap: 1.5rem;
+  box-sizing: border-box;
+
+  /* Màn hình lớn (Desktop): 3 thẻ 1 hàng */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Màn hình vừa / Tablet (dưới 1024px): 2 thẻ 1 hàng */
+@media (max-width: 1024px) {
+  .ticker-stream-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Màn hình điện thoại (dưới 640px): 1 thẻ 1 hàng */
+@media (max-width: 640px) {
+  .ticker-stream-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .market-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

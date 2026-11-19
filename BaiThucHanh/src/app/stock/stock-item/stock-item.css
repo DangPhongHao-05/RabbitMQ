@@ -1,0 +1,173 @@
+/* Thẻ chứng khoán dạng Card */
+.stock-ticker-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px; /* Thích hợp xếp trong CSS Grid */
+  min-height: 220px;
+  padding: 1.25rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease-in-out;
+  box-sizing: border-box;
+}
+
+.stock-ticker-row:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Phần thông tin nhận diện: Mã, Tên, Sàn */
+.stock-identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.ticker-symbol {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #0f172a;
+  background: #f1f5f9;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  min-width: 54px;
+  text-align: center;
+}
+
+.stock-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.stock-titles .name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.stock-titles .exchange-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Khối giá & các nút tương tác */
+.stock-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: auto;
+}
+
+.price-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #f1f5f9;
+}
+
+.price-display .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #0f172a;
+}
+
+/* Kiểu dáng chung cho các nút */
+.stock-metrics button {
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-metrics button:active {
+  transform: scale(0.97);
+}
+
+/* Nút Theo dõi: Chiếm toàn bộ chiều ngang hàng */
+.stock-metrics button:not(.action-btn) {
+  width: 100%;
+  padding: 0.55rem;
+  background-color: #f8fafc;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+.stock-metrics button:not(.action-btn):hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+/* Hàng chứa các nút hành động (Chi tiết, Update, Xóa) */
+.stock-metrics .action-btn {
+  flex: 1;
+}
+
+/* Dàn đều 3 nút thao tác trên 1 dòng */
+.stock-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.stock-metrics .price-display {
+  grid-column: 1 / -1;
+}
+
+.stock-metrics button:not(.action-btn) {
+  grid-column: 1 / -1;
+}
+
+/* Màu sắc nút thao tác */
+.action-btn.detail-btn {
+  background-color: #e0e7ff;
+  color: #4338ca;
+}
+
+.action-btn.detail-btn:hover {
+  background-color: #c7d2fe;
+}
+
+.action-btn.update-btn {
+  background-color: #f1f5f9;
+  color: #334155;
+  border-color: #e2e8f0;
+}
+
+.action-btn.update-btn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.action-btn.delete-btn {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-color: #fee2e2;
+}
+
+.action-btn.delete-btn:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}

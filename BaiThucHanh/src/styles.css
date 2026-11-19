@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+/* Xóa bỏ nền trắng thừa và padding của Dialog bọc ngoài */
+.mat-mdc-dialog-container .mdc-dialog__surface,
+.cdk-dialog-container {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}

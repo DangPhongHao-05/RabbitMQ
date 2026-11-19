@@ -1,0 +1,65 @@
+<div class="form-group">
+  <h3 class="form-title">Thêm Cổ Phiếu</h3>
+  <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
+    <div class="stock-name">
+      <input type="text" placeholder="Stock Name" formControlName="name" />
+      <div class="error-text" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+        Name is required
+      </div>
+    </div>
+
+    <div class="stock-code">
+      <input type="text" placeholder="Stock Code" formControlName="code" />
+      <div class="error-text" *ngIf="code?.invalid && (code?.dirty || code?.touched)">
+        <div *ngIf="code?.errors?.['required']">Stock code is required</div>
+        <div *ngIf="code?.errors?.['minlength']">Stock code must be at least 2 characters</div>
+      </div>
+    </div>
+
+    <div class="stock-price">
+      <input type="number" placeholder="Stock Price" formControlName="price" />
+      <div class="error-text" *ngIf="price?.invalid && (price?.dirty || price?.touched)">
+        <div *ngIf="price?.errors?.['required']">Stock price is required</div>
+        <div *ngIf="price?.errors?.['min']">Stock price must be positive</div>
+      </div>
+    </div>
+
+    <div class="stock-exchange">
+      <select formControlName="exchange">
+        <option value="" disabled>Choose an exchange</option>
+        <option *ngFor="let ex of exchanges" [value]="ex">{{ ex }}</option>
+      </select>
+      <div class="error-text" *ngIf="exchange?.invalid && (exchange?.dirty || exchange?.touched)">
+        Stock exchange is required
+      </div>
+    </div>
+
+    <div class="stock-agree">
+      <label>
+        <input type="checkbox" formControlName="agree" />
+        I confirm that the above information is accurate.
+      </label>
+      <div class="error-text" *ngIf="agree?.invalid && (agree?.dirty || agree?.touched)">
+        You must agree to continue.
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn-submit" type="submit" [disabled]="stockForm.invalid">Submit Form</button>
+      <div class="btn-group-secondary">
+        <button type="button" (click)="resetForm()">Reset</button>
+        <button type="button" (click)="loadStockFromServer()">Simulate</button>
+        <button type="button" (click)="patchStockForm()">Patch</button>
+      </div>
+    </div>
+  </form>
+
+  <button type="button" class="back-button" (click)="closeDialog()">Cancel</button>
+</div>
+
+<div class="debug-info">
+  <p><strong>Value:</strong> {{ stockForm.value | json }}</p>
+  <p>
+    <strong>Status:</strong> <span [class.valid]="stockForm.valid">{{ stockForm.status }}</span>
+  </p>
+</div>

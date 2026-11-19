@@ -1,0 +1,49 @@
+<div class="stock-detail">
+  <!-- Header Modal: Tiêu đề & Nút đóng dạng icon -->
+  <div class="modal-header">
+    <div class="header-info">
+      <span class="stock-badge">{{ stock.code }}</span>
+      <span class="exchange-tag">{{ stock.exchange || 'N/A' }}</span>
+    </div>
+    <button type="button" class="btn-close-icon" (click)="closeDialog()" aria-label="Đóng">
+      ✕
+    </button>
+  </div>
+
+  <!-- Tên công ty & Khối giá lớn -->
+  <div class="stock-overview">
+    <h3 class="company-name">{{ stock.name }}</h3>
+    <div class="price-highlight">
+      <span class="currency">$</span>
+      <span class="price-val">{{ stock.price }}</span>
+    </div>
+  </div>
+
+  <!-- Danh sách thông tin chi tiết -->
+  <div class="detail-list">
+    <div class="detail-item">
+      <span class="label">Mã giao dịch</span>
+      <strong class="value code-val">{{ stock.code }}</strong>
+    </div>
+
+    <div class="detail-item">
+      <span class="label">Sàn niêm yết</span>
+      <strong class="value">{{ stock.exchange || 'Chưa cập nhật' }}</strong>
+    </div>
+
+    <div class="detail-item">
+      <span class="label">Danh mục theo dõi</span>
+      <span class="status-pill" [class.active]="stock.favorite">
+        <span class="status-dot"></span>
+        {{ stock.favorite ? 'Đang theo dõi' : 'Không theo dõi' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Hành động chính -->
+  <div class="modal-actions">
+    <button type="button" class="btn-primary-close" (click)="closeDialog()">
+      Xác nhận & Đóng
+    </button>
+  </div>
+</div>
